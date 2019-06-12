@@ -4,7 +4,7 @@ from telebot import apihelper
 
 bot = telebot.TeleBot('880475938:AAFZEAOKADR3YIIAa_Tggihlq6FPJVHi00E')  
 
-# apihelper.proxy = {'https': 'socks5://50.195.104.171:1080'}
+apihelper.proxy = {'https': 'socks5://50.195.104.171:1080'}
 
 
 @bot.message_handler(commands=['start'])
