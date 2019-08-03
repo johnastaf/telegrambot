@@ -1,16 +1,23 @@
 import telebot
-from dialogflow import bot_text
-from handlers import bot_handlers
+from dialogflow_handler import dialogflow_handler
+from vote_handler import vote_handler
+from schedule_handler import schedule_handler
+from inline_handler import inline_handler
+from geo_handler import geo_handler
 import time
 from telebot import apihelper
 import time
+import settings
 
-bot = telebot.TeleBot('880475938:AAFZEAOKADR3YIIAa_Tggihlq6FPJVHi00E')
+bot = telebot.TeleBot(settings.token)
 
 apihelper.proxy = {'https': 'socks5://163.172.81.30:443'}
 
-bot_handlers(bot)
-bot_text(bot)
+vote_handler(bot)
+geo_handler(bot)
+schedule_handler(bot)
+dialogflow_handler(bot)
+inline_handler(bot)
 
 while True:
     try:
